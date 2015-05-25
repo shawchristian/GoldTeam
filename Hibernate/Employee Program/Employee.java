@@ -1,9 +1,14 @@
 import java.io.Serializable;
+//This class will describe what makes an emplyee
 public class Employee implements Serializable
 {
+   //employeeID
    private int id ;
+   //employeeName
    private String name;
+   //empplyeeMobilePhone
    private long mobile;
+   //employeeEmail
    private String email;
    public Employee(){}
    public int getId() 

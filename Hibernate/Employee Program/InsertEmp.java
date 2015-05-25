@@ -14,9 +14,9 @@ public class InsertEmp
       Transaction tx = s.beginTransaction();
       Employee emp = new Employee();
       emp.setId(2);
-      emp.setName(“peter”);
-      emp.setMobile(888);
-      emp.setEmail(“peter@gmail”);
+      emp.setName(“Chad”);
+      emp.setMobile(2099812787);
+      emp.setEmail(“chaduras@hotmail.com”);
       s.save(emp);
       s.flush();
       tx.commit();
