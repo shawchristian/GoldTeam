@@ -15,9 +15,9 @@ public class UpdateEmp {
         Transaction tx = s.beginTransaction();
         Employee emp = new Employee();
         emp.setId(9);
-        emp.setName(“bradd pitt”);
-        emp.setMobile(111111);
-        emp.setEmail(“bradpitt@gmail.com”);
+        emp.setName(“devin lindsay”);
+        emp.setMobile(8008553655);
+        emp.setEmail(“sexydevin@gmail.com”);
         s.saveOrUpdate(emp);
         s.flush();
         tx.commit();
