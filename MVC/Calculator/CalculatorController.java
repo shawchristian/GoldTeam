@@ -1,57 +1,60 @@
 import java.awt.event.ActionEvent;
-02	import java.awt.event.ActionListener;
-03	 
-04	// The Controller coordinates interactions
-05	// between the View and Model
-06	 
-07	public class CalculatorController {
-08	     
-09	    private CalculatorView theView;
-10	    private CalculatorModel theModel;
-11	     
-12	    public CalculatorController(CalculatorView theView, CalculatorModel theModel) {
-13	        this.theView = theView;
-14	        this.theModel = theModel;
-15	         
-16	        // Tell the View that when ever the calculate button
-17	        // is clicked to execute the actionPerformed method
-18	        // in the CalculateListener inner class
-19	         
-20	        this.theView.addCalculateListener(new CalculateListener());
-21	    }
-22	     
-23	    class CalculateListener implements ActionListener{
-24	 
-25	        public void actionPerformed(ActionEvent e) {
-26	             
-27	            int firstNumber, secondNumber = 0;
-28	             
-29	            // Surround interactions with the view with
-30	            // a try block in case numbers weren't
-31	            // properly entered
-32	             
-33	            try{
-34	             
-35	                firstNumber = theView.getFirstNumber();
-36	                secondNumber = theView.getSecondNumber();
-37	                 
-38	                theModel.addTwoNumbers(firstNumber, secondNumber);
-39	                 
-40	                theView.setCalcSolution(theModel.getCalculationValue());
-41	             
-42	            }
-43	 
-44	            catch(NumberFormatException ex){
-45	                 
-46	                System.out.println(ex);
-47	                 
-48	                theView.displayErrorMessage("You Need to Enter 2 Integers");
-49	                 
-50	            }
-51	             
-52	        }
-53	         
-54	    }
-55	     
-56	}
+	import java.awt.event.ActionListener;
+	 
+	// The Controller coordinates interactions
+	// between the View and Model
+	 
+	public class CalculatorController {
+	     
+	    private CalculatorView theView;
+	    private CalculatorModel theModel;
+	     
+      //create constructor for it.  
+	    public CalculatorController(CalculatorView theView, CalculatorModel theModel) {
+	        this.theView = theView;
+	        this.theModel = theModel;
+	         
+	        // Tell the View that when ever the calculate button
+	        // is clicked to execute the actionPerformed method
+	        // in the CalculateListener inner class call calculate listener below
+	        //refer the object version of the view, not view that was passed in
+	        this.theView.addCalculateListener(new CalculateListener());//creating constructor
+	    }
+	    //so we can listen what is going on with view with controller
+	    class CalculateListener implements ActionListener{
+	        //where all interactions are going to occer, 
+	        public void actionPerformed(ActionEvent e) {
+	            
+	            int firstNumber, secondNumber = 0;
+	             
+	            // Surround interactions with the view with
+	            // a try block in case numbers weren't
+	            // properly entered
+	            //stop any errors from being triggered.  
+	            try{
+	                //going to get whatever is in the view and stor it in the value
+	                firstNumber = theView.getFirstNumber();
+	                secondNumber = theView.getSecondNumber();
+	                 
+	                //model performs all the calculations,
+	                theModel.addTwoNumbers(firstNumber, secondNumber);
+	                //model stors this in calcalation value
+	                //want to set calcuation solution, but first need to get in which is stored in the model
+	                theView.setCalcSolution(theModel.getCalculationValue());
+	             
+	            }
+	            //catch the error that will be triggered if they do not enter a number in the calcuation 
+	            catch(NumberFormatException ex){
+	                 
+	                System.out.println(ex);
+	                 
+	                theView.displayErrorMessage("You Need to Enter 2 Integers");
+	                 
+	            }
+	             
+	        }
+	         
+	    }
+	     
+	}
 - See more at: http://www.newthinktank.com/2013/02/mvc-java-tutorial/#sthash.gMrgh5Pv.dpuf
