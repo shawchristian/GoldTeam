@@ -1,4 +1,31 @@
-public class Server
+improt java.io.*;
+improt java.net.*
+import java.awt.event.*;
+import javax.swing.*;
+
+//for all the good gui stuff
+public class Server extends JFrame
 {
-	
+    
+	//need to build gui 
+    //variable that we ca type our message before we send it; area that contains message before we send it
+    private JTextField userText;
+
+    //need to area that displays converstation
+    private JTextArea chatWindow;
+
+    //main passgage ways to send stuff out and get stuff in
+    //to send stuff away
+    private ObjectOutputSteam output;
+
+    //to get stuff backto me
+    private ObjectInputStream input;
+
+    //rememebr that this is the application for the server, anyone else who uses this will be the client
+    //program goes on the computer and waits for everyone to join as a client
+    private ServerSocket server;
+
+    //socket itself - in java connections lke what I mentioned above are called sockets, so setting up sockets means setting up connections between on computer and another computer.  
+    private Socket conection;
+
 }
