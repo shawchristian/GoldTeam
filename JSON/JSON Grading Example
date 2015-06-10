@@ -1,0 +1,76 @@
+//Program will promps the user to enter name and course/grade
+//this will be stored in appropriate JSON structure (can do "on the fly" in otherwords, dont have to create a temporary //ArraryList).  This will be saved to a text file, which when the user hits return, the file will be read, and it will be //loaded into a JSON structure and print the info.  
+
+package jsonexercise;
+
+import java.util.Scanner
+
+//creating JSON data structures to save them to a file
+public class JSONExcorsice
+{
+	public static void main(string[])
+    
+       //create new scaner; system
+       Scanner input = new Scaner(System.in);
+
+        
+       System.out.print("Enter student name: ");
+       //soon creating JSON data structures to save them to a file
+       String name = input.nextLine();
+
+       while()
+
+
+       //enter course name 
+       System.out.print("Enter course name: ");
+
+       String course1 = input.nextLine();
+
+       //Query the user for enter grade
+
+       System.out.print("Enter grade: ");
+
+       //enter it asint
+       int grade1 = input.nextInt();
+
+       //we now have enough information to build that name value pair, and enough information to create one JSON Object or instance.  
+
+
+       //Java does not support jason nativly, so we are going to use external library, download external file to get library
+       //in order to use library, need to add it to the package
+
+       //create new jason object
+       JSONObject root = new JSONObject();
+
+       //going to add name value pair representing name and student name
+       root.put("naem", name);
+
+       //create JASON array, going to have one course that we created query for storing the class object
+       JSONObject courseObject1 = new JSONObject();
+       courseObject1.put("grade", grade1);
+       courseObject2.put("name", course1);
+
+       //now going to create json array
+       JASONArray courses = new JASONArray();
+       courses.add(courseObject1);
+
+       //add the array to the root object, value in this instance is going to be the array
+       root.put("courses", courses);
+
+       //so far, we queried user for the name, and we queries for coursenamame and grade; we created a new JSON OBJECT and we put name in root and value of name typed in; then we created the course object and we created courses array and added course object to course array.  THere are two puts in the root, first is name second is courses.  
+
+       //call toJASONString
+       //
+       System.out.println(root.toJASONString());
+
+
+       //go to JASONLint.com and see if the JSASON is properly formatted. 
+       //now we are going to create an array of courses 
+
+
+
+
+
+
+
+}
